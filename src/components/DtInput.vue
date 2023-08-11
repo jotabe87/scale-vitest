@@ -24,19 +24,19 @@ const {
   errorMessage,
   handleBlur,
   handleChange,
-} = useField(nameRef, undefined, {
+} = useField(nameRef, {required: true}, {
   initialValue: props.value,
 })
 </script>
 
 <template>
   <scale-text-field
-    :data-testid="nameRef"
-    :helper-text="errorMessage"
-    :invalid="errorMessage ? true : null"
-    :label="label"
-    :value="inputValue"
-    @scale-blur="handleBlur"
-    @scale-input="handleChange"
+      :data-testid="nameRef"
+      :helper-text="errorMessage"
+      :invalid="errorMessage ? true : null"
+      :label="label"
+      :value="inputValue"
+      @scale-blur="handleBlur"
+      @scale-input="handleChange"
   />
 </template>
