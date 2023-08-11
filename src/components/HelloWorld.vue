@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import DtInput from "@/components/DtInput.vue";
 </script>
 
 <template>
-  <scale-text-field label="Test" />
+  <DtInput label="Test" name="test"/>
 </template>
 
 <style scoped>

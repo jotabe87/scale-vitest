@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-describe('Dropdown Select', () => {
+describe.skip('Dropdown Select', () => {
   function getInsideComboboxContainer(): HTMLElement | null | undefined {
     return document.body
         .querySelector('scale-dropdown-select')

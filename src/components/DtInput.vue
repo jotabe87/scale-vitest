@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {toRef} from 'vue'
 import {useField} from 'vee-validate'
+import * as yup from 'yup'
 
 const props = defineProps({
   value: {
@@ -24,9 +25,11 @@ const {
   errorMessage,
   handleBlur,
   handleChange,
-} = useField(nameRef, {required: true}, {
-  initialValue: props.value,
-})
+} = useField(nameRef,
+    yup.string().required()
+    , {
+      initialValue: props.value,
+    })
 </script>
 
 <template>

@@ -25,12 +25,10 @@ describe('DtInput.vue', () => {
 
         const input = wrapper.find('[data-testid="test-field"]')
 
-        console.log(input.html())
 
-        const nativeInput = input.find('input')
-
-        // how to trigger input event and check if event is emitted?
-        await nativeInput.setValue('test')
+        // how to trigger input event and check if update event is emitted?
+        // await input.setValue('test')
+        input.element.value = 'test'
         expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['test'])
     })
 
@@ -40,6 +38,13 @@ describe('DtInput.vue', () => {
         })
 
         const input = wrapper.find('[data-testid="test-field"]')
+        input.element.value = 'test'
+        input.trigger('input')
+        input.trigger('change')
+
+        input.element.value = ''
+        input.trigger('input')
+        input.trigger('change')
 
         expect(input.attributes('helper-text')).toBe('Test Error')
     })
